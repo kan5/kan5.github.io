@@ -3,7 +3,8 @@
 <head>
   <title>Страничка уюта и тпела</title>
 </head>
-<body>
+<div class="wordart rainbow"><span class="text">WordArt</span></div>
+<body onmousedown="mutePage();document.getElementById('blue_traktor').play()">
 <link rel="stylesheet" href="styles.css">
 <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
 <script src="script.js"></script>
@@ -19,8 +20,9 @@
 </section>
 </p>
 
-<audio id="sound1" src="rick-roll.mp3" preload="auto"></audio>
-<button onclick="document.getElementById('sound1').play();">Play it</button>
+<audio id="rick_roll" src="audio/rick_roll.mp3" preload="auto" autoplay></audio>
+<audio id="blue_traktor" src="audio/blue_traktor.mp3" preload="auto"></audio>
+<button onclick="mutePage();document.getElementById('rick_roll').play()" style="font-size: 40px">ABOBA</button>
 <div class="backimage"></div>
 </body>
 </html>
