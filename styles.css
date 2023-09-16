@@ -41,6 +41,18 @@
   }
 }
 
+
+.rainbow-text {
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 50px;
+	text-shadow: #A3A3A3 1px 1px 1px;
+}
+.rainbow-text .block-line > span {
+	display: inline-block;
+}
+
+
 body {
   font-family: Arial, sans-serif;
   font-size: 2rem;
