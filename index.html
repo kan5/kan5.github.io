@@ -1,32 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <title>Страничка уюта и тпела</title>
+  <title>Страничка уюта и тепла</title>
+  <meta name="description" content="Портфолио резюме Data Science специалиста">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<div class="wordart rainbow"><span class="text">WordArt</span></div>
-<body onmousedown="mutePage();document.getElementById('blue_traktor').play()">
-<link rel="stylesheet" href="styles.css">
-<script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
-<script src="script.js"></script>
-<div style="height: 100vh"></div>
+<body>
+<header>
+  <div id="main-title" class="wordart rainbow">
+    <span class="text">Страничка<br>Искандера</span>
+  </div>
+  <nav id="header-nav">
+    <a>Data Science</a>
+    <a>Media Edits</a>
+    <a></a>
+    <a></a>
+  </nav>
+    <div>
+    <img id="tractor" src="img/tractor.png" onclick="playNewAudio('blue_tractor')" title="Давай, кликни, я же вижу, что ты хочешь">
+    </div>
+</header>
+<main>
+<section>
+<div style="text-align: center;">
+<a href="https://github.com/kan5" target="_blank" style="color: white;">ссылка на гитхаб</a>
+</div>
+</section>
+<section>
+</section>
+</main>
 <marquee style="color:red">Ты лучший!</marquee>
 <blink id="a1">PIZDEC</blink>
 
 <p>
-<section class="style-eleven">
-    <div class="wordart">
-      <h1 class="preview" data-content="CodePen">УльтраМегаПушка3000</h1>
-    </div>
-</section>
+Говно
 </p>
 
-<div class="rainbow-text" style="text-align: center;">
-	<span class="block-line"><span><span style="color:#ff0000;">H</span><span style="color:#ff3c00;">T</span><span style="color:#ff7300;">M</span><span style="color:#ffaa00;">L&nbsp;</span></span><span><span style="color:#ffe500;">C</span><span style="color:#e1ff00;">S</span><span style="color:#aaff00;">S&nbsp;</span></span><span><span style="color:#6eff00;">R</span><span style="color:#37ff00;">a</span><span style="color:#00ff00;">i</span><span style="color:#00ff3c;">n</span><span style="color:#00ff73;">b</span><span style="color:#00ffaa;">o</span><span style="color:#00ffe6;">w&nbsp;</span></span><span><span style="color:#00e1ff;">T</span><span style="color:#00a6ff;">e</span><span style="color:#006eff;">x</span><span style="color:#0037ff;">t&nbsp;</span></span><span><span style="color:#0400ff;">G</span><span style="color:#3c00ff;">e</span><span style="color:#7300ff;">n</span><span style="color:#ae00ff;">e</span><span style="color:#e500ff;">r</span><span style="color:#ff00e1;">a</span><span style="color:#ff00aa;">t</span><span style="color:#ff006e;">o</span><span style="color:#ff0037;">r</span></span></span>
-</div>
 
-<audio id="rick_roll" src="audio/rick_roll.mp3" preload="auto" autoplay></audio>
-<audio id="blue_traktor" src="audio/blue_traktor.mp3" preload="auto"></audio>
-<button onclick="mutePage();document.getElementById('rick_roll').play()" style="font-size: 40px">ABOBA</button>
+<button style="margin-bottom: 80px;" onclick="playNewAudio('rick_roll')" style="font-size: 40px" title="попробуй не ссы">ABOBA</button>
 <div class="backimage"></div>
+
+<footer> 
+    <p>&copy; 2023 Копирайт 2023. Все права защищены.</p>
+    <nav>
+       <a href="#">Политика конфиденциальности</a>
+       <a href="#">Условия использования</a>
+    </nav>
+</footer>
+
+<audio id="rick_roll" src="audio/rick_roll.mp3" preload="auto"></audio>
+<audio id="blue_tractor" src="audio/blue_tractor.mp3" preload="auto"></audio>
+<script src="script.js"></script>
+<script src="script/coursore.js"></script>
 </body>
 </html>

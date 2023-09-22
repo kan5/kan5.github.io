@@ -1,12 +1,24 @@
 ﻿window.addEventListener("load", (event) => {
   new cursoreffects.rainbowCursor();
 });
-function muteMe(elem) {
-//    elem.muted = true;
-    elem.pause();
+
+
+let audious = document.querySelectorAll("audio");
+
+
+function mutePage() {
+    audious.forEach((elem) => elem.pause());
 }
 
-// Try to mute all video and audio elements on the page
-function mutePage() {
-    document.querySelectorAll("video, audio").forEach((elem) => muteMe(elem));
+function loadAllAudio() {
+	audious.forEach((elem) => elem.load());
+}
+
+function playNewAudio(name) {
+	if (document.getElementById(name).paused) {
+		mutePage();
+		document.getElementById(name).play();
+	} else {
+		mutePage();
+	}
 }
