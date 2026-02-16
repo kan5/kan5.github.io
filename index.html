@@ -1,73 +1,454 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ML4WNRTBQW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106700083', 'ym');
 
-  gtag('config', 'G-ML4WNRTBQW');
-</script>
-  <title>Страничка уюта и тепла</title>
-  <meta name="description" content="Портфолио резюме Data Science специалиста">
-  <link rel="stylesheet" href="styles.css">
+        ym(106700083, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106700083" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сосал?</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+New:wght@400;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: white;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        #video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+
+        .main-text {
+            font-size: 20vw;
+            font-family: Garamond;
+            color: white;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(-50%);
+            animation: slideDown 0.9s forwards;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            pointer-events: none;
+        }
+
+        @keyframes slideDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards 0.5s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .btn {
+            background: transparent;
+            border: none;
+            font-family: 'Courier New', monospace;
+            font-size: 2rem;
+            color: white;
+            padding: 10px 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            text-shadow: 
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            color: yellow;
+            transform: scale(1.05);
+        }
+
+        .countdown {
+            
+            font-size: 20vw;
+            font-family: Garamond;
+            color: white;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: slideDown 0.9s forwards;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            display: none;
+            pointer-events: none;
+        }
+
+        .audio-control {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: 1px solid white;
+            padding: 5px 10px;
+            font-family: 'Courier New', monospace;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .audio-control:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .main-text {
+                font-size: 15vw;
+                margin-bottom: 40px;
+            }
+            
+            .btn {
+                font-size: 1.5rem;
+                padding: 8px 30px;
+            }
+            
+            .countdown {
+                font-size: 10vw;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-  <div id="main-title" class="wordart rainbow">
-    <span class="text">Страничка<br>Искандера</span>
-  </div>
-  <nav id="header-nav">
-    <a>Data Science</a>
-    <a>Media Edits</a>
-    <a></a>
-    <a></a>
-  </nav>
-    <div>
-    <img id="tractor" src="img/tractor.png" onclick="playNewAudio('blue_tractor')" title="Давай, кликни, я же вижу, что ты хочешь">
+    <div class="container">
+        <video id="video-bg" autoplay muted loop playsinline>
+            <source src="assets/static_sky.webm" type="video/webm">
+            <audio id="selectSound" src="assets/select_2.aac"></audio>
+            <audio id="clickSound" src="assets/click_1.aac"></audio>
+            <!-- Фоллбэк, если видео не загрузится -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, #0c0c2e, #1a1a3e);"></div>
+        </video>
+        
+        <div class="content">
+            <div class="main-text" id="mainText">Сосал?</div>
+            
+            <div class="buttons-container" id="buttonsContainer">
+                <button class="btn" id="yesBtn">- Да.</button>
+                <button class="btn" id="noBtn">- Нет.</button>
+            </div>
+            
+            <div class="countdown" id="countdown">0:05</div>
+        </div>
+        
+        <canvas id="glitchCanvas"></canvas>
+        
+        <button class="audio-control" id="audioToggle">Включить звук</button>
     </div>
-</header>
-<main>
-<section>
-  <div style="text-align: center;">
-  <a href="kai-research.html" target="_blank" style="color: white;">👉Анализ группы Вконтакте КАИ с использованием теории графов</a>
-  </div>
-</section>
-<section>
-  <div style="text-align: center;">
-  <a href="https://github.com/kan5" target="_blank" style="color: white;">👉ссылка на гитхаб(другие проекты)</a>
-  </div>
-</section>
-<section>
-  <div style="text-align: center;">
-  <a href="https://drive.google.com/drive/folders/1KzbdysQFgkODNlb9-2xpUQnwDUnMCgFG?usp=sharing" target="_blank" style="color: white;">👉Нетехнические проекты(презентации, видео, картинки)</a>
-  </div>
-</section>
-</main>
-<marquee style="color:red">Ты лучший! (нажми на трактор)</marquee>
-<blink id="a1"></blink>
 
-<p>
-
-</p>
-
-
-<button style="margin-bottom: 80px;" onclick="playNewAudio('rick_roll')" style="font-size: 40px" title="попробуй не ссы">ABOBA</button>
-<div class="backimage"></div>
-
-<footer> 
-    <p>&copy; 2023 Копирайт 2023. Все права защищены.</p>
-    <nav>
-       <a href="#">Политика конфиденциальности</a>
-       <a href="#">Условия использования</a>
-    </nav>
-</footer>
-
-<audio id="rick_roll" src="audio/rick_roll.mp3" preload="auto"></audio>
-<audio id="blue_tractor" src="audio/blue_tractor.mp3" preload="auto"></audio>
-<script src="script.js"></script>
-<script src="script/coursore.js"></script>
+    <audio id="glitchSound" src="assets/click_1.aac" preload="auto">
+        <!-- В реальном проекте здесь был бы ваш аудиофайл -->
+        <!-- Для демонстрации использую стандартный звук -->
+    </audio>
+    
+    <script>
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            // Элементы
+            const mainText = document.getElementById('mainText');
+            const buttonsContainer = document.getElementById('buttonsContainer');
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            const countdown = document.getElementById('countdown');
+            const glitchCanvas = document.getElementById('glitchCanvas');
+            const glitchSound = document.getElementById('glitchSound');
+            const videoBg = document.getElementById('video-bg');
+            const audioToggle = document.getElementById('audioToggle');
+            const ctx = glitchCanvas.getContext('2d');
+            const selectSound = document.getElementById("selectSound");
+            selectSound.volume = 0.7;
+            const clickSound = document.getElementById("clickSound");
+            // Настройка размеров canvas
+            function resizeCanvas() {
+                glitchCanvas.width = window.innerWidth;
+                glitchCanvas.height = window.innerHeight;
+            }
+            
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            
+            // Переключатель кнопки "Нет"
+            noBtn.addEventListener('mouseenter', function() {
+                this.textContent = '- Да.';
+                selectSound.currentTime = 0;
+                selectSound.play();
+            });
+            
+            yesBtn.addEventListener('mouseenter', function() {
+                selectSound.currentTime = 0;
+                selectSound.play();
+            });
+            
+            noBtn.addEventListener('mouseleave', function() {
+                this.textContent = '- Нет.';
+            });
+            
+            // Обработчики кнопок
+            yesBtn.addEventListener('click', startCountdown);
+            noBtn.addEventListener('click', startCountdown);
+            
+            
+            // Функция запуска отсчета
+            function startCountdown() {
+                clickSound.play()
+                // Скрываем основной текст и кнопки
+                mainText.style.opacity = '0';
+                mainText.style.transition = 'opacity 0.3s';
+                
+                buttonsContainer.style.opacity = '0';
+                buttonsContainer.style.transition = 'opacity 0.3s';
+                
+                // Показываем отсчет
+                setTimeout(() => {
+                    mainText.style.display = 'none';
+                    buttonsContainer.style.display = 'none';
+                    
+                    countdown.style.display = 'block';
+                    countdown.style.opacity = '1';
+                    countdown.style.transition = 'opacity 0.5s';
+                    
+                    // Запускаем отсчет
+                    let timeLeft = 5;
+                    const countdownInterval = setInterval(() => {
+                        countdown.textContent = `0:0${timeLeft}`;
+                        timeLeft--;
+                        
+                        if (timeLeft < 0) {
+                            clearInterval(countdownInterval);
+                            countdown.style.opacity = '0';
+                            setTimeout(() => {
+                                countdown.style.display = 'none';
+                                startGlitchEffect();
+                            }, 500);
+                        }
+                    }, 1000);
+                }, 300);
+            }
+            
+            // Функция глитч-эффекта
+            function startGlitchEffect() {
+                // Показываем canvas
+                glitchCanvas.style.display = 'block';
+                
+                // Запускаем воспроизведение звука
+                glitchSound.play().catch(e => {
+                    console.log("Автовоспроизведение звука заблокировано. Нажмите 'Включить звук'");
+                });
+                
+                // Запускаем глитч-эффект
+                let glitchIntensity = 100;
+                let glitchDuration = 1000; // 1 секунда
+                let startTime = Date.now();
+                
+                function glitchAnimation() {
+                    const elapsed = Date.now() - startTime;
+                    const progress = Math.min(elapsed / glitchDuration, 1);
+                    
+                    // Уменьшаем интенсивность глитча со временем
+                    const currentIntensity = glitchIntensity * (1 - progress);
+                    
+                    // Очищаем canvas
+                    ctx.clearRect(0, 0, glitchCanvas.width, glitchCanvas.height);
+                    
+                    // Создаем глитч-эффект
+                    for (let i = 0; i < currentIntensity; i++) {
+                        const x = Math.random() * glitchCanvas.width;
+                        const y = Math.random() * glitchCanvas.height;
+                        const width = Math.random() * 30 + 5;
+                        const height = Math.random() * 20 + 2;
+                        
+                        // Случайный цвет для глитча
+                        const r = Math.floor(Math.random() * 256);
+                        const g = Math.floor(Math.random() * 256);
+                        const b = Math.floor(Math.random() * 256);
+                        
+                        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${Math.random() * 0.7})`;
+                        ctx.fillRect(x, y, width, height);
+                        
+                        // Добавляем смещенные копии для эффекта смещения RGB каналов
+                        if (Math.random() > 0.7) {
+                            const offsetX = (Math.random() - 0.5) * 20;
+                            const offsetY = (Math.random() - 0.5) * 10;
+                            
+                            ctx.fillStyle = `rgba(${g}, ${b}, ${r}, ${Math.random() * 0.5})`;
+                            ctx.fillRect(x + offsetX, y + offsetY, width, height);
+                        }
+                    }
+                    
+                    // Добавляем горизонтальные линии глитча
+                    for (let i = 0; i < currentIntensity / 10; i++) {
+                        const y = Math.random() * glitchCanvas.height;
+                        const height = Math.random() * 5 + 1;
+                        
+                        ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.5})`;
+                        ctx.fillRect(0, y, glitchCanvas.width, height);
+                    }
+                    
+                    // Если время глитча не истекло, продолжаем анимацию
+                    if (progress < 1) {
+                        requestAnimationFrame(glitchAnimation);
+                    } else {
+                        // По окончании глитча скрываем canvas
+                        setTimeout(() => {
+                            glitchCanvas.style.opacity = '0';
+                            glitchCanvas.style.transition = 'opacity 0.5s';
+                            
+                            // Сбрасываем страницу через 1 секунду
+                            setTimeout(resetPage, 1000);
+                        }, 200);
+                    }
+                }
+                
+                // Запускаем анимацию глитча
+                glitchAnimation();
+            }
+            
+            // Сброс страницы к начальному состоянию
+            function resetPage() {
+                glitchCanvas.style.display = 'none';
+                glitchCanvas.style.opacity = '1';
+                
+                mainText.style.display = 'block';
+                mainText.style.opacity = '1';
+                mainText.style.animation = 'none';
+                
+                buttonsContainer.style.display = 'flex';
+                buttonsContainer.style.opacity = '1';
+                
+                // Перезапускаем анимацию текста
+                setTimeout(() => {
+                    mainText.style.animation = 'slideDown 0.3s forwards';
+                }, 10);
+            }
+            
+            // Управление аудио
+            let audioEnabled = false;
+            
+            audioToggle.addEventListener('click', function() {
+                audioEnabled = !audioEnabled;
+                
+                if (audioEnabled) {
+                    this.textContent = 'Выключить звук';
+                    // Включаем звук для видео
+                    videoBg.muted = false;
+                    // Устанавливаем громкость для звука глитча
+                    glitchSound.volume = 0.7;
+                } else {
+                    this.textContent = 'Включить звук';
+                    videoBg.muted = true;
+                    glitchSound.volume = 0;
+                }
+            });
+            
+            // Создаем звук глитча (если нет аудиофайла)
+            if (glitchSound.src === '') {
+                // Генерируем короткий глитч-звук с помощью Web Audio API
+                try {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    // Настройки звука глитча
+                    oscillator.type = 'sawtooth';
+                    oscillator.frequency.setValueAtTime(100, audioContext.currentTime);
+                    
+                    // Эффект глитча - быстро меняющаяся частота
+                    oscillator.frequency.exponentialRampToValueAtTime(800, audioContext.currentTime + 0.05);
+                    oscillator.frequency.exponentialRampToValueAtTime(100, audioContext.currentTime + 0.1);
+                    oscillator.frequency.exponentialRampToValueAtTime(600, audioContext.currentTime + 0.15);
+                    oscillator.frequency.exponentialRampToValueAtTime(150, audioContext.currentTime + 0.2);
+                    
+                    // Настройка громкости
+                    gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.25);
+                    
+                    // Длительность звука
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 0.3);
+                    
+                    // Конвертируем в MediaElementSource для использования в audio элементе
+                    // (в реальном проекте здесь был бы ваш аудиофайл)
+                } catch (e) {
+                    console.log("Web Audio API не поддерживается");
+                }
+            }
+            
+            // Начальная анимация уже выполняется через CSS
+        });
+    </script>
 </body>
 </html>

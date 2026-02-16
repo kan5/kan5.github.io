@@ -1,0 +1,80 @@
+p {
+	border: 3px solid white;
+}
+
+
+#main-title {
+  position: block;
+  width: 100%;
+  margin: 0.5em 0 1em 0;
+  font-size: 3em;
+  line-height: 1em;
+  text-align: center;
+  letter-spacing: 0.05em;
+  background-color: rgb(255, 255, 255, 0.1);
+}
+
+
+#tractor {
+	display: block;
+	max-width: 30vmin;
+	margin: 10vh auto 0 auto;
+	text-align: center;
+	cursor: pointer;
+}
+
+#header-nav {
+  display: block;
+  position: relative;
+  margin: 0em auto 0 auto;
+}
+
+.wordart {
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke: 1px white;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+
+.wordart.rainbow {
+  transform: scale(1, 1.5);
+  -webkit-transform: scale(1, 1.5);
+  -moz-transform: scale(1, 1.5);
+  -o-transform: scale(1, 1.5);
+  -ms-transform: scale(1, 1.5);
+}
+
+.wordart.rainbow .text {
+  background: red; 
+  background: -webkit-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
+  background: -o-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
+  background: -moz-linear-gradient(left, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af);
+  background: linear-gradient(to right, #b306a9, #ef2667, #f42e2c, #ffa509, #fdfc00, #55ac2f, #0b13fd, #a804af); 
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 2rem;
+  background-image: url('./img/bg.png');
+  background-repeat: repeat;
+}
+
+
+.backimage {
+   height: 72px;
+   width: 100%;
+   position: relative;
+   bottom: 0px;
+   left: 0px;
+   background:url("img/flames.gif");
+   background-repeat: repeat-x;
+}
+
