@@ -1,454 +1,429 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106700083', 'ym');
-
-        ym(106700083, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/106700083" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-
-
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сосал?</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+New:wght@400;700&display=swap">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Courier New', monospace;
-            background: #000;
-            color: white;
-            overflow: hidden;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        #video-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
-
-        .content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            text-align: center;
-        }
-
-        .main-text {
-            font-size: 20vw;
-            font-family: Garamond;
-            color: white;
-            margin-bottom: 60px;
-            opacity: 0;
-            transform: translateY(-50%);
-            animation: slideDown 0.9s forwards;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-            pointer-events: none;
-        }
-
-        @keyframes slideDown {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .buttons-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            opacity: 0;
-            animation: fadeIn 0.5s forwards 0.5s;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        .btn {
-            background: transparent;
-            border: none;
-            font-family: 'Courier New', monospace;
-            font-size: 2rem;
-            color: white;
-            padding: 10px 40px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            text-shadow: 
-                -1px -1px 0 #000,
-                1px -1px 0 #000,
-                -1px 1px 0 #000,
-                1px 1px 0 #000;
-            letter-spacing: 1px;
-        }
-
-        .btn:hover {
-            color: yellow;
-            transform: scale(1.05);
-        }
-
-        .countdown {
-            
-            font-size: 20vw;
-            font-family: Garamond;
-            color: white;
-            margin-bottom: 60px;
-            opacity: 0;
-            animation: slideDown 0.9s forwards;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-            display: none;
-        }
-
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 3;
-            display: none;
-            pointer-events: none;
-        }
-
-        .audio-control {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            z-index: 10;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            border: 1px solid white;
-            padding: 5px 10px;
-            font-family: 'Courier New', monospace;
-            cursor: pointer;
-            border-radius: 3px;
-        }
-
-        .audio-control:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        @media (max-width: 768px) {
-            .main-text {
-                font-size: 15vw;
-                margin-bottom: 40px;
-            }
-            
-            .btn {
-                font-size: 1.5rem;
-                padding: 8px 30px;
-            }
-            
-            .countdown {
-                font-size: 10vw;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>...</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 100%; height: 100%; overflow: hidden; background: #000;
+    -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+  }
+  #video-bg {
+    position: fixed; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: 0;
+  }
+  #glitch-canvas {
+    position: fixed; inset: 0; width: 100%; height: 100%;
+    z-index: 5; pointer-events: none; display: none;
+  }
+  #sound-overlay {
+    position: fixed; inset: 0; z-index: 100;
+    backdrop-filter: blur(20px) brightness(0.7);
+    -webkit-backdrop-filter: blur(20px) brightness(0.7);
+    background: rgba(0,0,0,0.5);
+    display: flex; align-items: center; justify-content: center;
+    transition: opacity 0.6s;
+  }
+  #sound-overlay.hidden { opacity: 0; pointer-events: none; }
+  #sound-btn {
+    font-family: 'Courier New', monospace;
+    font-size: clamp(0.9rem, 3.5vw, 1.15rem);
+    color: #fff; background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.55);
+    padding: clamp(10px,3vw,16px) clamp(24px,6vw,44px);
+    cursor: pointer; letter-spacing: 0.12em;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    transition: color 0.2s, border-color 0.2s;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  #sound-btn:hover, #sound-btn:active { color: #ffe033; border-color: #ffe033; }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 rgba(255,255,255,0.15); }
+    50%      { box-shadow: 0 0 22px rgba(255,255,255,0.35); }
+  }
+  #ui {
+    position: fixed; inset: 0; z-index: 10;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: clamp(16px, 4vw, 32px); padding: 20px;
+  }
+  /* wrapper so title & countdown occupy same space, no layout shift */
+  #title-wrap {
+    position: relative;
+    width: 100vw;
+    height: min(48vw, 58vh);
+    display: flex; align-items: center; justify-content: center;
+  }
+  #main-title, #countdown {
+    position: absolute;
+    font-family: Garamond, 'Times New Roman', serif;
+    font-size: min(48vw, 58vh);
+    line-height: 1; color: #fff;
+    text-shadow: 0 2px 32px rgba(0,0,0,0.65);
+    white-space: nowrap; user-select: none;
+  }
+  #main-title {
+    opacity: 0; will-change: opacity, clip-path;
+  }
+  #main-title.reveal { animation: titleReveal 1s ease forwards; }
+  @keyframes titleReveal {
+    0%   { opacity: 0; clip-path: inset(50% 0 50% 0); }
+    100% { opacity: 1; clip-path: inset(0% 0 0% 0); }
+  }
+  #main-title.hide { animation: titleHide 0.35s ease forwards; }
+  @keyframes titleHide { to { opacity: 0; transform: scale(0.94); } }
+  #countdown { opacity: 0; transition: opacity 0.2s; }
+  #countdown.show { opacity: 1; }
+  #btns {
+    display: flex; flex-direction: column;
+    gap: clamp(8px, 2.5vw, 16px); align-items: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.8s;
+  }
+  #btns.visible { opacity: 1; pointer-events: all; }
+  #btns.dimmed  { opacity: 0.4 !important; pointer-events: none; }
+  .choice-btn {
+    background: transparent; border: none;
+    padding: clamp(10px,3vw,18px) clamp(28px,7vw,56px);
+    cursor: pointer; font-family: 'Courier New', monospace;
+    font-size: clamp(1.1rem, 4vw, 1.7rem); color: #fff;
+    text-shadow: 1px 1px 0 #000,-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000;
+    letter-spacing: 0.08em; transition: color 0.15s;
+    min-height: 56px; min-width: 160px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .choice-btn:hover, .choice-btn:active { color: #ffe033; }
+  .choice-btn.selected { color: #ffe033; }
+</style>
 </head>
 <body>
-    <div class="container">
-        <video id="video-bg" autoplay muted loop playsinline>
-            <source src="assets/static_sky.webm" type="video/webm">
-            <audio id="selectSound" src="assets/select_2.aac"></audio>
-            <audio id="clickSound" src="assets/click_1.aac"></audio>
-            <!-- Фоллбэк, если видео не загрузится -->
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, #0c0c2e, #1a1a3e);"></div>
-        </video>
-        
-        <div class="content">
-            <div class="main-text" id="mainText">Сосал?</div>
-            
-            <div class="buttons-container" id="buttonsContainer">
-                <button class="btn" id="yesBtn">- Да.</button>
-                <button class="btn" id="noBtn">- Нет.</button>
-            </div>
-            
-            <div class="countdown" id="countdown">0:05</div>
-        </div>
-        
-        <canvas id="glitchCanvas"></canvas>
-        
-        <button class="audio-control" id="audioToggle">Включить звук</button>
-    </div>
 
-    <audio id="glitchSound" src="assets/click_1.aac" preload="auto">
-        <!-- В реальном проекте здесь был бы ваш аудиофайл -->
-        <!-- Для демонстрации использую стандартный звук -->
-    </audio>
-    
-    <script>
-    
-        document.addEventListener('DOMContentLoaded', function() {
-            // Элементы
-            const mainText = document.getElementById('mainText');
-            const buttonsContainer = document.getElementById('buttonsContainer');
-            const yesBtn = document.getElementById('yesBtn');
-            const noBtn = document.getElementById('noBtn');
-            const countdown = document.getElementById('countdown');
-            const glitchCanvas = document.getElementById('glitchCanvas');
-            const glitchSound = document.getElementById('glitchSound');
-            const videoBg = document.getElementById('video-bg');
-            const audioToggle = document.getElementById('audioToggle');
-            const ctx = glitchCanvas.getContext('2d');
-            const selectSound = document.getElementById("selectSound");
-            selectSound.volume = 0.7;
-            const clickSound = document.getElementById("clickSound");
-            // Настройка размеров canvas
-            function resizeCanvas() {
-                glitchCanvas.width = window.innerWidth;
-                glitchCanvas.height = window.innerHeight;
-            }
-            
-            window.addEventListener('resize', resizeCanvas);
-            resizeCanvas();
-            
-            // Переключатель кнопки "Нет"
-            noBtn.addEventListener('mouseenter', function() {
-                this.textContent = '- Да.';
-                selectSound.currentTime = 0;
-                selectSound.play();
-            });
-            
-            yesBtn.addEventListener('mouseenter', function() {
-                selectSound.currentTime = 0;
-                selectSound.play();
-            });
-            
-            noBtn.addEventListener('mouseleave', function() {
-                this.textContent = '- Нет.';
-            });
-            
-            // Обработчики кнопок
-            yesBtn.addEventListener('click', startCountdown);
-            noBtn.addEventListener('click', startCountdown);
-            
-            
-            // Функция запуска отсчета
-            function startCountdown() {
-                clickSound.play()
-                // Скрываем основной текст и кнопки
-                mainText.style.opacity = '0';
-                mainText.style.transition = 'opacity 0.3s';
-                
-                buttonsContainer.style.opacity = '0';
-                buttonsContainer.style.transition = 'opacity 0.3s';
-                
-                // Показываем отсчет
-                setTimeout(() => {
-                    mainText.style.display = 'none';
-                    buttonsContainer.style.display = 'none';
-                    
-                    countdown.style.display = 'block';
-                    countdown.style.opacity = '1';
-                    countdown.style.transition = 'opacity 0.5s';
-                    
-                    // Запускаем отсчет
-                    let timeLeft = 5;
-                    const countdownInterval = setInterval(() => {
-                        countdown.textContent = `0:0${timeLeft}`;
-                        timeLeft--;
-                        
-                        if (timeLeft < 0) {
-                            clearInterval(countdownInterval);
-                            countdown.style.opacity = '0';
-                            setTimeout(() => {
-                                countdown.style.display = 'none';
-                                startGlitchEffect();
-                            }, 500);
-                        }
-                    }, 1000);
-                }, 300);
-            }
-            
-            // Функция глитч-эффекта
-            function startGlitchEffect() {
-                // Показываем canvas
-                glitchCanvas.style.display = 'block';
-                
-                // Запускаем воспроизведение звука
-                glitchSound.play().catch(e => {
-                    console.log("Автовоспроизведение звука заблокировано. Нажмите 'Включить звук'");
-                });
-                
-                // Запускаем глитч-эффект
-                let glitchIntensity = 100;
-                let glitchDuration = 1000; // 1 секунда
-                let startTime = Date.now();
-                
-                function glitchAnimation() {
-                    const elapsed = Date.now() - startTime;
-                    const progress = Math.min(elapsed / glitchDuration, 1);
-                    
-                    // Уменьшаем интенсивность глитча со временем
-                    const currentIntensity = glitchIntensity * (1 - progress);
-                    
-                    // Очищаем canvas
-                    ctx.clearRect(0, 0, glitchCanvas.width, glitchCanvas.height);
-                    
-                    // Создаем глитч-эффект
-                    for (let i = 0; i < currentIntensity; i++) {
-                        const x = Math.random() * glitchCanvas.width;
-                        const y = Math.random() * glitchCanvas.height;
-                        const width = Math.random() * 30 + 5;
-                        const height = Math.random() * 20 + 2;
-                        
-                        // Случайный цвет для глитча
-                        const r = Math.floor(Math.random() * 256);
-                        const g = Math.floor(Math.random() * 256);
-                        const b = Math.floor(Math.random() * 256);
-                        
-                        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${Math.random() * 0.7})`;
-                        ctx.fillRect(x, y, width, height);
-                        
-                        // Добавляем смещенные копии для эффекта смещения RGB каналов
-                        if (Math.random() > 0.7) {
-                            const offsetX = (Math.random() - 0.5) * 20;
-                            const offsetY = (Math.random() - 0.5) * 10;
-                            
-                            ctx.fillStyle = `rgba(${g}, ${b}, ${r}, ${Math.random() * 0.5})`;
-                            ctx.fillRect(x + offsetX, y + offsetY, width, height);
-                        }
-                    }
-                    
-                    // Добавляем горизонтальные линии глитча
-                    for (let i = 0; i < currentIntensity / 10; i++) {
-                        const y = Math.random() * glitchCanvas.height;
-                        const height = Math.random() * 5 + 1;
-                        
-                        ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.5})`;
-                        ctx.fillRect(0, y, glitchCanvas.width, height);
-                    }
-                    
-                    // Если время глитча не истекло, продолжаем анимацию
-                    if (progress < 1) {
-                        requestAnimationFrame(glitchAnimation);
-                    } else {
-                        // По окончании глитча скрываем canvas
-                        setTimeout(() => {
-                            glitchCanvas.style.opacity = '0';
-                            glitchCanvas.style.transition = 'opacity 0.5s';
-                            
-                            // Сбрасываем страницу через 1 секунду
-                            setTimeout(resetPage, 1000);
-                        }, 200);
-                    }
-                }
-                
-                // Запускаем анимацию глитча
-                glitchAnimation();
-            }
-            
-            // Сброс страницы к начальному состоянию
-            function resetPage() {
-                glitchCanvas.style.display = 'none';
-                glitchCanvas.style.opacity = '1';
-                
-                mainText.style.display = 'block';
-                mainText.style.opacity = '1';
-                mainText.style.animation = 'none';
-                
-                buttonsContainer.style.display = 'flex';
-                buttonsContainer.style.opacity = '1';
-                
-                // Перезапускаем анимацию текста
-                setTimeout(() => {
-                    mainText.style.animation = 'slideDown 0.3s forwards';
-                }, 10);
-            }
-            
-            // Управление аудио
-            let audioEnabled = false;
-            
-            audioToggle.addEventListener('click', function() {
-                audioEnabled = !audioEnabled;
-                
-                if (audioEnabled) {
-                    this.textContent = 'Выключить звук';
-                    // Включаем звук для видео
-                    videoBg.muted = false;
-                    // Устанавливаем громкость для звука глитча
-                    glitchSound.volume = 0.7;
-                } else {
-                    this.textContent = 'Включить звук';
-                    videoBg.muted = true;
-                    glitchSound.volume = 0;
-                }
-            });
-            
-            // Создаем звук глитча (если нет аудиофайла)
-            if (glitchSound.src === '') {
-                // Генерируем короткий глитч-звук с помощью Web Audio API
-                try {
-                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                    const oscillator = audioContext.createOscillator();
-                    const gainNode = audioContext.createGain();
-                    
-                    oscillator.connect(gainNode);
-                    gainNode.connect(audioContext.destination);
-                    
-                    // Настройки звука глитча
-                    oscillator.type = 'sawtooth';
-                    oscillator.frequency.setValueAtTime(100, audioContext.currentTime);
-                    
-                    // Эффект глитча - быстро меняющаяся частота
-                    oscillator.frequency.exponentialRampToValueAtTime(800, audioContext.currentTime + 0.05);
-                    oscillator.frequency.exponentialRampToValueAtTime(100, audioContext.currentTime + 0.1);
-                    oscillator.frequency.exponentialRampToValueAtTime(600, audioContext.currentTime + 0.15);
-                    oscillator.frequency.exponentialRampToValueAtTime(150, audioContext.currentTime + 0.2);
-                    
-                    // Настройка громкости
-                    gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
-                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.25);
-                    
-                    // Длительность звука
-                    oscillator.start(audioContext.currentTime);
-                    oscillator.stop(audioContext.currentTime + 0.3);
-                    
-                    // Конвертируем в MediaElementSource для использования в audio элементе
-                    // (в реальном проекте здесь был бы ваш аудиофайл)
-                } catch (e) {
-                    console.log("Web Audio API не поддерживается");
-                }
-            }
-            
-            // Начальная анимация уже выполняется через CSS
-        });
-    </script>
+<video id="video-bg" src="assets/static_sky.webm" loop muted playsinline></video>
+<canvas id="glitch-canvas"></canvas>
+
+<div id="sound-overlay">
+  <button id="sound-btn">▶ &nbsp;<span id="overlay-text"></span></button>
+</div>
+
+<div id="ui">
+  <div id="title-wrap">
+    <div id="main-title"></div>
+    <div id="countdown">0:05</div>
+  </div>
+  <div id="btns">
+    <button class="choice-btn" id="btn-yes"></button>
+    <button class="choice-btn" id="btn-no"></button>
+  </div>
+</div>
+
+<script>
+// ─── i18n ────────────────────────────────────────────────────────────────────
+const STRINGS = {
+  ru: { overlay:'Включить звук', title:'Сосал?',  yes:'- Да.',   no:'- Нет.' },
+  en: { overlay:'Enable Sound',  title:'Sucked?', yes:'- Yes.',  no:'- No.'  },
+  zh: { overlay:'开启声音',       title:'吸过吗？', yes:'- 是的。', no:'- 没有。'},
+};
+const lang = (()=>{ const r=(navigator.language||'ru').toLowerCase(); if(r.startsWith('zh'))return'zh'; if(r.startsWith('en'))return'en'; return'ru'; })();
+const T = STRINGS[lang];
+
+document.getElementById('overlay-text').textContent = T.overlay;
+document.getElementById('main-title').textContent   = T.title;
+document.getElementById('btn-yes').textContent      = T.yes;
+document.getElementById('btn-no').textContent       = T.no;
+
+// ─── Audio ───────────────────────────────────────────────────────────────────
+let actx = null;
+const buffers = {};   // WebAudio decoded buffers (instant play)
+const sounds  = {};   // HTMLAudio fallback for looping/long tracks
+
+function getActx() {
+  if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+  return actx;
+}
+
+// Preload into WebAudio buffer — zero-latency playback
+async function loadBuffer(k, src, vol) {
+  try {
+    const res = await fetch(src);
+    const arr = await res.arrayBuffer();
+    const decoded = await getActx().decodeAudioData(arr);
+    buffers[k] = { buf: decoded, vol: vol || 1 };
+  } catch(e) {}
+}
+
+// HTMLAudio for looping bg / long files
+function loadAudio(k,src,vol,loop){ const a=new Audio(src); a.volume=vol||1; a.loop=loop||false; a.load(); sounds[k]=a; }
+
+// Active looping sources so we can stop them later
+const loopNodes = {};
+
+function play(k, loop) {
+  if (!buffers[k]) return;
+  try {
+    const ac = getActx();
+    const src = ac.createBufferSource();
+    src.buffer = buffers[k].buf;
+    if (loop) src.loop = true;
+    const gain = ac.createGain();
+    gain.gain.value = buffers[k].vol;
+    src.connect(gain); gain.connect(ac.destination);
+    src.start(0);
+    if (loop) loopNodes[k] = src;
+  } catch(e) {}
+}
+
+function stopLoop(k) {
+  if (loopNodes[k]) { try { loopNodes[k].stop(); } catch(e) {} delete loopNodes[k]; }
+}
+
+// All sounds into WebAudio buffers
+loadBuffer('wind',  'assets/wind_mixdownn.mp3',   0.7);
+loadBuffer('select','assets/select_2.aac',        0.8);
+loadBuffer('click', 'assets/click_1.aac',         0.8);
+loadBuffer('tick',  'assets/tick.mp3',            0.7);
+loadBuffer('glitch','assets/glitch_mixdownn.mp3', 0.9);
+
+// ─── Elements ────────────────────────────────────────────────────────────────
+const video   = document.getElementById('video-bg');
+const overlay = document.getElementById('sound-overlay');
+const titleEl = document.getElementById('main-title');
+const cdEl    = document.getElementById('countdown');
+const btns    = document.getElementById('btns');
+const btnYes  = document.getElementById('btn-yes');
+const btnNo   = document.getElementById('btn-no');
+const canvas  = document.getElementById('glitch-canvas');
+const ctx     = canvas.getContext('2d');
+
+let started=false, choiceMade=false, cdVal=5, cdInterval=null;
+
+// ─── Sound overlay ───────────────────────────────────────────────────────────
+document.getElementById('sound-btn').addEventListener('click', function() {
+  overlay.classList.add('hidden');
+  setTimeout(()=>overlay.remove(), 700);
+  video.muted=false;
+  video.play().catch(()=>{ video.muted=true; video.play(); });
+  play('wind', true);
+  started=true;
+  setTimeout(()=>titleEl.classList.add('reveal'), 500);
+  setTimeout(()=>btns.classList.add('visible'), 1700);
+});
+
+// ─── Hover / swap ────────────────────────────────────────────────────────────
+btnNo.addEventListener('mouseenter',()=>{ if(choiceMade)return; btnYes.textContent=T.no; btnNo.textContent=T.yes; play('select'); });
+btnNo.addEventListener('mouseleave',()=>{ if(choiceMade)return; btnYes.textContent=T.yes; btnNo.textContent=T.no; });
+btnYes.addEventListener('mouseenter',()=>{ if(!choiceMade)play('select'); });
+
+btnNo.addEventListener('touchstart',function(e){ e.preventDefault(); if(choiceMade)return; btnYes.textContent=T.no; btnNo.textContent=T.yes; play('select'); },{passive:false});
+btnNo.addEventListener('touchend',function(e){ e.preventDefault(); onChoice(btnNo); },{passive:false});
+btnNo.addEventListener('touchcancel',()=>{ if(!choiceMade){btnYes.textContent=T.yes;btnNo.textContent=T.no;} });
+btnYes.addEventListener('touchend',function(e){ e.preventDefault(); onChoice(btnYes); },{passive:false});
+
+// ─── Choice ──────────────────────────────────────────────────────────────────
+function onChoice(btn) {
+  if(choiceMade||!started)return;
+  choiceMade=true;
+  play('click');
+  btn.classList.add('selected');
+  btns.classList.remove('visible');
+  btns.classList.add('dimmed');
+
+  // Hide title, show countdown in same wrapper (no layout shift)
+  titleEl.classList.add('hide');
+  setTimeout(()=>{ titleEl.style.visibility='hidden'; cdEl.classList.add('show'); },200);
+
+  cdVal=5; play('tick');
+  cdInterval=setInterval(function(){
+    cdVal--;
+    cdEl.textContent='0:0'+cdVal;
+    if(cdVal>0) play('tick');
+    else { clearInterval(cdInterval); startGlitch(); }
+  },1000);
+}
+
+btnYes.addEventListener('click',()=>onChoice(btnYes));
+btnNo.addEventListener('click', ()=>onChoice(btnNo));
+
+// ─── Glitch ──────────────────────────────────────────────────────────────────
+function startGlitch(){
+  play('glitch');
+  canvas.style.display='block';
+  canvas.width=window.innerWidth; canvas.height=window.innerHeight;
+  const W=canvas.width, H=canvas.height;
+  const cx=W/2, cy=H/2;
+
+  // ── Off-screen buffer with Win9x dialog cascade ───────────────────────────
+  const buf=document.createElement('canvas');
+  buf.width=W; buf.height=H;
+  const bx=buf.getContext('2d');
+
+  function drawWinDialog(c,x,y,w,h,alpha){
+    c.save(); c.globalAlpha=alpha;
+    const barH=Math.max(16,Math.floor(h*0.14));
+    // shadow
+    c.shadowColor='rgba(0,0,0,0.5)'; c.shadowBlur=6; c.shadowOffsetX=3; c.shadowOffsetY=3;
+    c.fillStyle='#c0c0c0'; c.fillRect(x,y,w,h);
+    c.shadowColor='transparent'; c.shadowBlur=0; c.shadowOffsetX=0; c.shadowOffsetY=0;
+    // title bar gradient
+    const g=c.createLinearGradient(x,y,x+w,y);
+    g.addColorStop(0,'#000080'); g.addColorStop(1,'#1084d0');
+    c.fillStyle=g; c.fillRect(x,y,w,barH);
+    // title text
+    c.font=`bold ${Math.max(9,barH-5)}px "Courier New",monospace`;
+    c.fillStyle='#fff'; c.textAlign='left'; c.textBaseline='middle';
+    c.fillText(T.title, x+5, y+barH/2);
+    // close btn
+    const bs=barH-4;
+    c.fillStyle='#c0c0c0'; c.fillRect(x+w-bs-2,y+2,bs,bs);
+    c.strokeStyle='#fff'; c.lineWidth=1; c.strokeRect(x+w-bs-1,y+3,bs-2,bs-2);
+    c.strokeStyle='#808080'; c.strokeRect(x+w-bs-2,y+2,bs,bs);
+    c.fillStyle='#000'; c.font=`bold ${bs}px sans-serif`; c.textAlign='center';
+    c.fillText('×',x+w-bs/2-2,y+barH/2+1);
+    // window border 3D
+    c.strokeStyle='#fff'; c.lineWidth=2; c.strokeRect(x+1,y+1,w-2,h-2);
+    c.strokeStyle='#808080'; c.lineWidth=1; c.strokeRect(x,y,w,h);
+    c.strokeStyle='#404040'; c.strokeRect(x+2,y+2,w-4,h-4);
+    // body text
+    const fs2=Math.max(8,Math.floor(w*0.065));
+    c.font=`${fs2}px "Courier New",monospace`;
+    c.fillStyle='#000'; c.textAlign='center'; c.textBaseline='top';
+    c.fillText(T.yes, x+w/2, y+barH+10);
+    c.fillText(T.no,  x+w/2, y+barH+10+fs2*1.5);
+    // OK button
+    const okW=Math.max(40,Math.floor(w*0.28)), okH=Math.max(18,Math.floor(h*0.16));
+    const okX=x+(w-okW)/2, okY=y+h-okH-8;
+    c.fillStyle='#c0c0c0'; c.fillRect(okX,okY,okW,okH);
+    c.strokeStyle='#fff'; c.lineWidth=1; c.strokeRect(okX+1,okY+1,okW-2,okH-2);
+    c.strokeStyle='#808080'; c.strokeRect(okX,okY,okW,okH);
+    c.strokeStyle='#404040'; c.strokeRect(okX+2,okY+2,okW-4,okH-4);
+    c.fillStyle='#000'; c.font=`bold ${Math.max(8,okH-8)}px "Courier New",monospace`;
+    c.textAlign='center'; c.textBaseline='middle';
+    c.fillText('OK',okX+okW/2,okY+okH/2);
+    c.restore();
+  }
+
+  const dw=Math.min(W*0.4,360), dh=dw*0.55;
+  const NUM=22;
+  // Draw cascade: last window (most behind) drawn first
+  for(let i=NUM-1;i>=0;i--){
+    const ox=i*16, oy=i*12;
+    const bx2=cx-dw/2+ox, by=cy-dh/2+oy;
+    const alpha=Math.max(0.12, 1-i*0.038);
+    drawWinDialog(bx, bx2, by, dw, dh, alpha);
+  }
+
+  // ── Persistent tear zones ─────────────────────────────────────────────────
+  const tears=Array.from({length:7},()=>({
+    y:Math.random()*H, h:3+Math.random()*28,
+    spd:(Math.random()-0.5)*2.5,
+    shift:(Math.random()-0.5)*W*0.18,
+  }));
+
+  let frame=0, lastT2=0;
+  const TOTAL=15;
+
+  function draw(ts){
+    if(ts-lastT2<33){requestAnimationFrame(draw);return;}
+    lastT2=ts; frame++;
+    const t=frame/TOTAL;
+
+    ctx.clearRect(0,0,W,H);
+
+    // 1. Row-displacement from buffer
+    let y=0;
+    const numStrips=50+Math.floor(Math.random()*50);
+    while(y<H){
+      const sh=1+Math.floor(Math.random()*(H/numStrips*2.5));
+      const rnd=Math.random();
+      let dx=0;
+      if(rnd<0.06) dx=(Math.random()-0.5)*W*0.3*t;
+      else if(rnd<0.18) dx=(Math.random()-0.5)*25*t;
+      ctx.drawImage(buf,0,y,W,sh,dx,y,W,sh);
+      y+=sh;
+    }
+
+    // 2. Drifting tear zones
+    tears.forEach(tr=>{
+      tr.y=(tr.y+tr.spd+H)%H;
+      const dx=tr.shift*t*(0.6+Math.random()*0.8);
+      ctx.save();
+      ctx.drawImage(buf,0,tr.y,W,tr.h,dx,tr.y,W,tr.h);
+      ctx.globalCompositeOperation='screen'; ctx.globalAlpha=0.2*t;
+      ctx.fillStyle=dx>0?'rgba(255,0,60,1)':'rgba(0,200,255,1)';
+      ctx.fillRect(0,tr.y,W,tr.h);
+      ctx.restore();
+    });
+
+    // 3. Per-pixel RGB chromatic aberration
+    if(t>0.25){
+      const shift=Math.floor(3+Math.random()*16*t);
+      const snap=ctx.getImageData(0,0,W,H);
+      const out=new ImageData(W,H);
+      for(let py=0;py<H;py++){
+        for(let px=0;px<W;px++){
+          const i=(py*W+px)*4;
+          const ir=(py*W+Math.min(W-1,px+shift))*4;
+          const ib=(py*W+Math.max(0,px-shift))*4;
+          out.data[i]  =snap.data[ir];
+          out.data[i+1]=snap.data[i+1];
+          out.data[i+2]=snap.data[ib+2];
+          out.data[i+3]=snap.data[i+3];
+        }
+      }
+      ctx.putImageData(out,0,0);
+    }
+
+    // 4. Corrupt blocks (source-row swaps)
+    const nb=Math.floor(2+Math.random()*7*t);
+    for(let b=0;b<nb;b++){
+      const bx2=Math.random()*W, by2=Math.random()*H;
+      const bw=30+Math.random()*W*0.3, bh=2+Math.random()*12;
+      const srcY=Math.floor(Math.random()*H);
+      ctx.save(); ctx.globalAlpha=0.6+Math.random()*0.4;
+      ctx.drawImage(buf,0,srcY,W,bh,bx2-W/2,by2,W,bh);
+      ctx.restore();
+    }
+
+    // 5. Signal-loss black bands
+    if(Math.random()<0.3*t){
+      ctx.save(); ctx.globalAlpha=0.6+Math.random()*0.35;
+      ctx.fillStyle='#000';
+      ctx.fillRect(0,Math.random()*H,W,3+Math.random()*35*t);
+      ctx.restore();
+    }
+
+    // 6. Sparse noise — drawn as tiny rects, NOT putImageData (avoids overwrite)
+    const density=0.0008+t*0.001;
+    const noiseCount=Math.floor(W*H*density);
+    ctx.save();
+    for(let n=0;n<noiseCount;n++){
+      const nx=Math.floor(Math.random()*W);
+      const ny=Math.floor(Math.random()*H);
+      ctx.globalAlpha=0.4+Math.random()*0.6;
+      ctx.fillStyle=Math.random()>0.5?'#fff':'#000';
+      ctx.fillRect(nx,ny,1,1);
+    }
+    ctx.restore();
+
+    // 7. VHS scanlines
+    ctx.save(); ctx.globalAlpha=0.07; ctx.fillStyle='#000';
+    for(let sy=0;sy<H;sy+=3) ctx.fillRect(0,sy,W,1);
+    ctx.restore();
+
+    // 8. Hard flash
+    if(Math.random()<0.05+t*0.08){
+      ctx.save(); ctx.globalAlpha=0.1+Math.random()*0.3*t;
+      ctx.fillStyle='#fff'; ctx.fillRect(0,0,W,H);
+      ctx.restore();
+    }
+
+    if(frame<TOTAL) requestAnimationFrame(draw);
+    else setTimeout(()=>{ window.location.href='indexx.html'; },80);
+  }
+  requestAnimationFrame(draw);
+}
+
+window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
+</script>
 </body>
 </html>
