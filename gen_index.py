@@ -3,7 +3,7 @@ import sys
 from datetime import datetime
 
 SKIP_DIRS = {'.git', '__pycache__', 'node_modules', '.svn'}
-SKIP_FILES = {'gen_index.py',  '.gitignore'}
+SKIP_FILES = {'gen_index.py',  '.gitignore', }
 INDEX_FILE = 'indexx.html'
 metrika = '''
 <!-- Yandex.Metrika counter -->
