@@ -485,10 +485,13 @@ if(sessionStorage.getItem('seen_intro')){
   video.style.opacity='0.15';
   document.body.style.overflow='auto';
   document.documentElement.style.overflow='auto';
-  const pf=document.getElementById('portfolio');
-  pf.classList.add('no-transition');
-  pf.style.display='block';
-  pf.style.opacity='1';
+  // Portfolio element is below this script in DOM, wait for it to exist
+  document.addEventListener('DOMContentLoaded', function() {
+    const pf=document.getElementById('portfolio');
+    pf.classList.add('no-transition');
+    pf.style.display='block';
+    pf.style.opacity='1';
+  });
 }
 
 // ─── Expose lang for portfolio.js ────────────────────────────────────────────
@@ -497,7 +500,11 @@ window._portfolioLang = lang;
 <script src="portfolio/portfolio.js" defer></script>
 
 <section id="portfolio"></section>
-<div id="lightbox"><img src="" alt=""></div>
+<div id="lightbox">
+  <button class="lb-arrow lb-prev">&#8249;</button>
+  <img src="" alt="">
+  <button class="lb-arrow lb-next">&#8250;</button>
+</div>
 
 </body>
 </html>

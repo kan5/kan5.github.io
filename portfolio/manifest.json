@@ -15,7 +15,7 @@
             "IMG_20240815_192500.jpg",
             "IMG_20240821_185328.jpg",
             "IMG_20240924_182723.jpg",
-            "mmexport1724947250511.png",
+            "mmexport1724947250511.jpg",
             "photo_1_2026-02-19_12-40-39.jpg",
             "photo_2_2026-02-19_12-40-39.jpg",
             "photo_3_2026-02-19_12-40-39.jpg"
@@ -178,36 +178,6 @@
           "media": [
             "bandicam 2021-11-13 22-36-41-319.mp4"
           ],
-          "description": null
-        }
-      ]
-    },
-    {
-      "id": "2015-2019-school",
-      "title": { "ru": "Школа", "en": "School", "zh": "学校" },
-      "projects": [
-        {
-          "id": "poems",
-          "title": { "ru": "Стихи", "en": "Poems", "zh": "诗歌" },
-          "path": "portfolio/2015-2019-school/poems",
-          "thumbnail": null,
-          "media": [],
-          "description": null
-        },
-        {
-          "id": "music",
-          "title": { "ru": "Музыка", "en": "Music", "zh": "音乐" },
-          "path": "portfolio/2015-2019-school/music",
-          "thumbnail": null,
-          "media": [],
-          "description": null
-        },
-        {
-          "id": "minecraft",
-          "title": { "ru": "Майнкрафт", "en": "Minecraft", "zh": "我的世界" },
-          "path": "portfolio/2015-2019-school/minecraft",
-          "thumbnail": null,
-          "media": [],
           "description": null
         }
       ]
