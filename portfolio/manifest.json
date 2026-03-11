@@ -1,0 +1,216 @@
+{
+  "periods": [
+    {
+      "id": "2024-2025-china",
+      "title": { "ru": "Китай", "en": "China", "zh": "中国" },
+      "projects": [
+        {
+          "id": "door",
+          "title": { "ru": "Дверь", "en": "The Door", "zh": "门" },
+          "path": "portfolio/2024-2025-china/door",
+          "thumbnail": "IMG_20240731_201900.jpg",
+          "media": [
+            "IMG_20240731_201900.jpg",
+            "IMG_20240804_185554.jpg",
+            "IMG_20240815_192500.jpg",
+            "IMG_20240821_185328.jpg",
+            "IMG_20240924_182723.jpg",
+            "mmexport1724947250511.png",
+            "photo_1_2026-02-19_12-40-39.jpg",
+            "photo_2_2026-02-19_12-40-39.jpg",
+            "photo_3_2026-02-19_12-40-39.jpg"
+          ],
+          "description": "ru.md"
+        },
+        {
+          "id": "candyshop",
+          "title": { "ru": "Кэндишоп", "en": "Candyshop", "zh": "糖果店" },
+          "path": "portfolio/2024-2025-china/candyshop",
+          "thumbnail": "IMG_20241126_031439.jpg",
+          "media": [
+            "IMG_20241126_031439.jpg",
+            "story-n-message.pdf"
+          ],
+          "description": "ru.md"
+        },
+        {
+          "id": "cigarette",
+          "title": { "ru": "Сигарета", "en": "Cigarette", "zh": "香烟" },
+          "path": "portfolio/2024-2025-china/cigarette",
+          "thumbnail": "IMG_20241027_122650.jpg",
+          "media": [
+            "IMG_20241027_122650.jpg",
+            "VID_20241027_122621.mp4"
+          ],
+          "description": "ru.md"
+        },
+        {
+          "id": "novel",
+          "title": { "ru": "Новелла", "en": "Novel", "zh": "小说" },
+          "path": "portfolio/2024-2025-china/novel",
+          "thumbnail": null,
+          "media": [
+            "\u041d\u0430 \u043a\u0430\u0440\u043c\u0430\u043d\u043d\u044b\u0435 \u0440\u0430\u0441\u0445\u043e\u0434\u044b.pdf",
+            "\u95f2\u94b1\u5c0f\u4e8b.pdf"
+          ],
+          "description": "ru.md"
+        }
+      ]
+    },
+    {
+      "id": "2019-2024-uni",
+      "title": { "ru": "Универ", "en": "University", "zh": "大学" },
+      "projects": [
+        {
+          "id": "2025-typeshit",
+          "title": { "ru": "Печатная машинка", "en": "Typewriter", "zh": "打字机" },
+          "path": "portfolio/2019-2024-uni/2025-typeshit",
+          "thumbnail": "photo_2_2026-02-19_12-39-32.jpg",
+          "media": [
+            "photo_1_2026-02-19_12-39-49.jpg",
+            "photo_2_2026-02-19_12-39-32.jpg",
+            "photo_2_2026-02-19_12-39-49.jpg",
+            "photo_3_2026-02-19_12-39-49.jpg",
+            "video_2024-09-21_23-04-20.mp4"
+          ],
+          "description": "ru.md"
+        },
+        {
+          "id": "2025-phonecall",
+          "title": { "ru": "Звонок", "en": "Phone Call", "zh": "电话" },
+          "path": "portfolio/2019-2024-uni/2025-phonecall",
+          "thumbnail": null,
+          "media": [
+            "0627-copy.mp4"
+          ],
+          "description": null
+        },
+        {
+          "id": "2024-ainme-chan",
+          "title": { "ru": "Аниме-чан", "en": "Anime Chan", "zh": "动漫酱" },
+          "path": "portfolio/2019-2024-uni/2024-ainme-chan",
+          "thumbnail": "IMG_20251105_023211_257.jpg",
+          "media": [
+            "IMG_20251105_023211_257.jpg",
+            "Neon Genesis Evangelion - Opening (Creditless) (HD - 60 fps)_4.mp4",
+            "anime recommendation bot.mp4"
+          ],
+          "description": null
+        },
+        {
+          "id": "2024-graph-network",
+          "title": { "ru": "Граф-сеть", "en": "Graph Network", "zh": "图网络" },
+          "path": "portfolio/2019-2024-uni/2024-graph-network",
+          "thumbnail": "members.svg",
+          "media": [
+            "members.svg"
+          ],
+          "description": null
+        },
+        {
+          "id": "2023-dithering",
+          "title": { "ru": "Дизеринг", "en": "Dithering", "zh": "抖动" },
+          "path": "portfolio/2019-2024-uni/2023-dithering",
+          "thumbnail": "photo_1_2026-02-19_12-40-25.jpg",
+          "media": [
+            "photo_1_2026-02-19_12-40-25.jpg",
+            "photo_2_2026-02-19_12-40-25.jpg",
+            "photo_3_2026-02-19_12-40-25.jpg",
+            "photo_4_2026-02-19_12-40-25.jpg",
+            "photo_5_2026-02-19_12-40-25.jpg",
+            "photo_6_2026-02-19_12-40-25.jpg",
+            "photo_7_2026-02-19_12-40-25.jpg",
+            "photo_8_2026-02-19_12-40-25.jpg",
+            "photo_9_2026-02-19_12-40-26.jpg",
+            "photo_10_2026-02-19_12-40-26.jpg"
+          ],
+          "description": null
+        },
+        {
+          "id": "2023-study-startup-business",
+          "title": { "ru": "Стартап", "en": "Startup", "zh": "创业" },
+          "path": "portfolio/2019-2024-uni/2023-study-startup-business",
+          "thumbnail": null,
+          "media": [
+            "Demo Day.pdf",
+            "Think Different.pdf",
+            "\u6db2\u4f53\u4fbf.pdf"
+          ],
+          "description": null
+        },
+        {
+          "id": "2022-posters",
+          "title": { "ru": "Постеры", "en": "Posters", "zh": "海报" },
+          "path": "portfolio/2019-2024-uni/2022-posters",
+          "thumbnail": "cement-colored.jpg",
+          "media": [
+            "cement-colored.jpg",
+            "jack-colored.jpg",
+            "kind-colored.jpg",
+            "morning-colored.jpg",
+            "y_colored.jpg"
+          ],
+          "description": null
+        },
+        {
+          "id": "2022-add",
+          "title": { "ru": "ADD", "en": "ADD", "zh": "ADD" },
+          "path": "portfolio/2019-2024-uni/2022-add",
+          "thumbnail": "\u041a\u043e\u043f\u0438\u044f photo_2022-10-04_20-55-19.jpg",
+          "media": [
+            "MEMEBERS.pdf",
+            "\u041a\u043e\u043f\u0438\u044f photo_2022-10-04_20-55-19.jpg",
+            "\u041a\u043e\u043f\u0438\u044f photo_2022-10-04_21-38-20.jpg",
+            "brief_result/\u041a\u043e\u043f\u0438\u044f -1LKQ7X-Qac.jpg",
+            "brief_result/\u041a\u043e\u043f\u0438\u044f 4_RQiXy_3Yg.jpg",
+            "brief_result/\u041a\u043e\u043f\u0438\u044f 70AbrOPCsw0.jpg",
+            "brief_result/\u041a\u043e\u043f\u0438\u044f HkOJZlVZttw.jpg",
+            "brief_result/\u041a\u043e\u043f\u0438\u044f bRb_h5RPVcU.jpg",
+            "brief_result/\u041a\u043e\u043f\u0438\u044f iYkOqhCAhBI.jpg"
+          ],
+          "description": null
+        },
+        {
+          "id": "2021-func-road",
+          "title": { "ru": "Функ-роуд", "en": "Func Road", "zh": "函数之路" },
+          "path": "portfolio/2019-2024-uni/2021-func-road",
+          "thumbnail": null,
+          "media": [
+            "bandicam 2021-11-13 22-36-41-319.mp4"
+          ],
+          "description": null
+        }
+      ]
+    },
+    {
+      "id": "2015-2019-school",
+      "title": { "ru": "Школа", "en": "School", "zh": "学校" },
+      "projects": [
+        {
+          "id": "poems",
+          "title": { "ru": "Стихи", "en": "Poems", "zh": "诗歌" },
+          "path": "portfolio/2015-2019-school/poems",
+          "thumbnail": null,
+          "media": [],
+          "description": null
+        },
+        {
+          "id": "music",
+          "title": { "ru": "Музыка", "en": "Music", "zh": "音乐" },
+          "path": "portfolio/2015-2019-school/music",
+          "thumbnail": null,
+          "media": [],
+          "description": null
+        },
+        {
+          "id": "minecraft",
+          "title": { "ru": "Майнкрафт", "en": "Minecraft", "zh": "我的世界" },
+          "path": "portfolio/2015-2019-school/minecraft",
+          "thumbnail": null,
+          "media": [],
+          "description": null
+        }
+      ]
+    }
+  ]
+}

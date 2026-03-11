@@ -19,7 +19,16 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>...</title>
+<title>kan5 — Portfolio</title>
+<meta name="description" content="Creative portfolio by kan5 — art, stories, projects, and experiments.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="kan5 — Portfolio">
+<meta property="og:description" content="Creative portfolio — art, stories, projects, and experiments.">
+<meta property="og:url" content="https://kan5.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="kan5 — Portfolio">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="portfolio/style.css">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html, body {
@@ -434,12 +443,61 @@ function startGlitch(){
     }
 
     if(frame<TOTAL) requestAnimationFrame(draw);
-    else setTimeout(()=>{ window.location.href='indexx.html'; },80);
+    else setTimeout(showPortfolio, 80);
   }
   requestAnimationFrame(draw);
 }
 
 window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
+
+// ─── Transition to portfolio ─────────────────────────────────────────────────
+function showPortfolio(){
+  // Stop all audio
+  stopLoop('wind');
+  if(actx) try{ actx.suspend(); }catch(e){}
+
+  // Hide intro elements
+  canvas.style.transition='opacity 0.6s';
+  canvas.style.opacity='0';
+  if(document.getElementById('ui')) document.getElementById('ui').style.display='none';
+  video.style.transition='opacity 1s';
+  video.style.opacity='0.15';
+
+  // Enable scrolling
+  document.body.style.overflow='auto';
+  document.documentElement.style.overflow='auto';
+
+  // Show portfolio
+  const pf=document.getElementById('portfolio');
+  pf.style.display='block';
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{ pf.style.opacity='1'; }));
+
+  sessionStorage.setItem('seen_intro','1');
+
+  setTimeout(()=>{ canvas.style.display='none'; },700);
+}
+
+// ─── Session check: skip intro if already seen ───────────────────────────────
+if(sessionStorage.getItem('seen_intro')){
+  // Skip everything — go straight to portfolio
+  overlay.remove();
+  document.getElementById('ui').style.display='none';
+  video.style.opacity='0.15';
+  document.body.style.overflow='auto';
+  document.documentElement.style.overflow='auto';
+  const pf=document.getElementById('portfolio');
+  pf.classList.add('no-transition');
+  pf.style.display='block';
+  pf.style.opacity='1';
+}
+
+// ─── Expose lang for portfolio.js ────────────────────────────────────────────
+window._portfolioLang = lang;
 </script>
+<script src="portfolio/portfolio.js" defer></script>
+
+<section id="portfolio"></section>
+<div id="lightbox"><img src="" alt=""></div>
+
 </body>
 </html>
