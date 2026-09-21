@@ -29,6 +29,7 @@
 <meta name="twitter:title" content="kan5 — Portfolio">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="portfolio/style.css">
+<link rel="stylesheet" href="portfolio/98.css">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html, body {
@@ -120,6 +121,55 @@
   }
   .choice-btn:hover, .choice-btn:active { color: #ffe033; }
   .choice-btn.selected { color: #ffe033; }
+
+  /* ─── Welcome modal (98.css) ─────────────────────────────────────────── */
+  #welcome-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  #welcome-modal-overlay.active { display: flex; }
+
+  #welcome-modal-overlay .window {
+    max-width: min(560px, 100%);
+    max-height: 88vh;
+    overflow: auto;
+    font-size: 14px;
+    cursor: default;
+    animation: wmPop 0.18s ease-out;
+  }
+  @keyframes wmPop {
+    from { transform: scale(0.92); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
+  }
+
+  #welcome-modal-overlay .title-bar-text { font-size: 13px; }
+  #welcome-modal-overlay .window-body { font-size: 14px; line-height: 1.55; }
+  #welcome-modal-overlay .window-body p { margin: 0 0 14px; }
+
+  #welcome-modal-overlay fieldset { margin: 0 0 12px; }
+  #welcome-modal-overlay .contact-row {
+    margin: 6px 0;
+    word-break: break-all;
+  }
+  #welcome-modal-overlay .contact-label {
+    font-weight: bold;
+    display: inline-block;
+    min-width: 56px;
+  }
+  #welcome-modal-overlay a { color: #0000ee; }
+  #welcome-modal-overlay a:visited { color: #551a8b; }
+
+  #welcome-modal-overlay .wm-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+  }
 </style>
 </head>
 <body>
@@ -142,6 +192,45 @@
   </div>
 </div>
 
+<div id="welcome-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="wm-title">
+  <div class="window" role="document">
+    <div class="title-bar">
+      <div class="title-bar-text" id="wm-title"></div>
+      <div class="title-bar-controls">
+        <button aria-label="Close" id="wm-close"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      <p id="wm-body"></p>
+
+      <fieldset>
+        <legend id="wm-legend"></legend>
+
+        <div class="contact-row">
+          <span class="contact-label">E-mail:</span>
+          <a href="mailto:iskanderbasyrovdata@gmail.com">iskanderbasyrovdata@gmail.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">TGC:</span>
+          <a href="https://t.me/iskander_wo" target="_blank" rel="noopener">https://t.me/iskander_wo</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">YT:</span>
+          <a href="https://www.youtube.com/@RIFGIF777" target="_blank" rel="noopener">https://www.youtube.com/@RIFGIF777</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">XHS:</span>
+          <a href="http://xhslink.com/m/9vaOis27KbU" target="_blank" rel="noopener">http://xhslink.com/m/9vaOis27KbU</a>
+        </div>
+      </fieldset>
+
+      <div class="wm-footer">
+        <button id="wm-ok"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 // ─── i18n ────────────────────────────────────────────────────────────────────
 const STRINGS = {
@@ -151,6 +240,49 @@ const STRINGS = {
 };
 const lang = (()=>{ const r=(navigator.language||'ru').toLowerCase(); if(r.startsWith('zh'))return'zh'; if(r.startsWith('en'))return'en'; return'ru'; })();
 const T = STRINGS[lang];
+
+// ─── Welcome modal strings ───────────────────────────────────────────────────
+const WM_STRINGS = {
+  ru: {
+    title:    'Новое сообщение',
+    body:     'Привет, рад что вы зашли на сайт! На этом сайте я собрал часть своего творчества. Чтобы увидеть больше — посмотрите мои социальные сети. Или свяжитесь со мной.',
+    contacts: 'Контакты',
+    ok:       'OK',
+  },
+  en: {
+    title:    'New message',
+    body:     "Hi! Glad you visited the site. Here I've gathered part of my creative work. To see more, check out my social media. Or contact me.",
+    contacts: 'Contacts',
+    ok:       'OK',
+  },
+  zh: {
+    title:    '新消息',
+    body:     '你好，很高兴你来到这个网站！我在这里收集了我的一部分创作。想看更多请查看我的社交媒体。或者联系我。',
+    contacts: '联系方式',
+    ok:       '确定',
+  },
+};
+const WM = WM_STRINGS[lang];
+
+// ─── Welcome modal setup ─────────────────────────────────────────────────────
+const wmOverlay = document.getElementById('welcome-modal-overlay');
+document.getElementById('wm-title').textContent  = WM.title;
+document.getElementById('wm-body').textContent   = WM.body;
+document.getElementById('wm-legend').textContent = WM.contacts;
+document.getElementById('wm-ok').textContent     = WM.ok;
+document.getElementById('wm-close').setAttribute('aria-label', WM.title);
+
+function openWelcome() { wmOverlay.classList.add('active'); }
+function closeWelcome() { wmOverlay.classList.remove('active'); }
+
+document.getElementById('wm-close').addEventListener('click', closeWelcome);
+document.getElementById('wm-ok').addEventListener('click', closeWelcome);
+wmOverlay.addEventListener('click', (e) => {
+  if (e.target === wmOverlay) closeWelcome();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && wmOverlay.classList.contains('active')) closeWelcome();
+});
 
 document.getElementById('overlay-text').textContent = T.overlay;
 document.getElementById('main-title').textContent   = T.title;
@@ -475,6 +607,8 @@ function showPortfolio(){
   sessionStorage.setItem('seen_intro','1');
 
   setTimeout(()=>{ canvas.style.display='none'; },700);
+    // Открываем приветственное окно после того, как портфолио проявилось
+  setTimeout(openWelcome, 900);
 }
 
 // ─── Session check: skip intro if already seen ───────────────────────────────
@@ -491,6 +625,7 @@ if(sessionStorage.getItem('seen_intro')){
     pf.classList.add('no-transition');
     pf.style.display='block';
     pf.style.opacity='1';
+    setTimeout(openWelcome, 400);
   });
 }
 
