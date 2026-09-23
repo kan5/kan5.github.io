@@ -54,6 +54,17 @@ a:hover {
   transition: none;
 }
 
+/* Desktop header / navigation */
+.portfolio-header { width:min(1180px,100%); margin:0 auto 18px; display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:3px; background:silver; box-shadow:inset -1px -1px #0a0a0a,inset 1px 1px #dfdfdf,inset -2px -2px grey,inset 2px 2px #fff; }
+.portfolio-heading { min-width:0; flex:1; padding:5px 8px; }
+.portfolio-heading h1 { margin:0; color:#fff; background:linear-gradient(90deg,navy,#1084d0); padding:4px 6px; font-family:"Pixelated MS Sans Serif",Arial,sans-serif; font-size:16px; font-weight:700; }
+.portfolio-heading p { margin:6px 0 0; color:#222; font-family:Arial,sans-serif; font-size:12px; }
+.portfolio-toolbar { padding:5px 6px; flex:0 0 auto; }
+#contacts-btn { min-width:92px; }
+#welcome-window { position:fixed; left:50%; top:50%; transform:translate(-50%,-50%); margin:0; touch-action:none; }
+#welcome-window .title-bar { cursor:move; user-select:none; }
+#welcome-window.dragging { user-select:none; }
+
 .period {
   width: min(1180px, 100%);
   margin: 0 auto 24px;
@@ -313,12 +324,6 @@ a:hover {
   overflow: auto;
 }
 
-#welcome-window .title-bar {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
 .welcome-body {
   margin: 8px;
 }
@@ -443,6 +448,10 @@ a:hover {
     width: calc(100vw - 20px);
     max-height: calc(100vh - 20px);
   }
+
+  .portfolio-header { align-items:stretch; flex-direction:column; }
+  .portfolio-toolbar { padding-top:0; }
+  #contacts-btn { width:100%; }
 
   .welcome-text {
     font-size: 13px;

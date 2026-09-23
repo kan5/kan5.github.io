@@ -252,10 +252,49 @@
     return card;
   }
 
+  // Desktop-style contacts button and draggable Win98 windows
+  function makeWindowDraggable(win) {
+    if (!win || win._draggableReady) return;
+    const bar = win.querySelector('.title-bar');
+    if (!bar) return;
+    win._draggableReady = true;
+    let dragging = false, startX = 0, startY = 0, startLeft = 0, startTop = 0;
+    function pointerDown(e) {
+      if (e.button !== undefined && e.button !== 0) return;
+      if (e.target.closest('.title-bar-controls')) return;
+      const rect = win.getBoundingClientRect();
+      dragging = true; startX = e.clientX; startY = e.clientY; startLeft = rect.left; startTop = rect.top;
+      win.classList.add('dragging');
+      if (e.pointerId !== undefined && bar.setPointerCapture) { try { bar.setPointerCapture(e.pointerId); } catch (_) {} }
+      e.preventDefault();
+    }
+    function pointerMove(e) {
+      if (!dragging) return;
+      const maxLeft = Math.max(0, window.innerWidth - win.offsetWidth);
+      const maxTop = Math.max(0, window.innerHeight - win.offsetHeight);
+      win.style.left = Math.min(maxLeft, Math.max(0, startLeft + e.clientX - startX)) + 'px';
+      win.style.top = Math.min(maxTop, Math.max(0, startTop + e.clientY - startY)) + 'px';
+      win.style.transform = 'none';
+    }
+    function pointerUp() { dragging = false; win.classList.remove('dragging'); }
+    bar.addEventListener('pointerdown', pointerDown);
+    bar.addEventListener('pointermove', pointerMove);
+    bar.addEventListener('pointerup', pointerUp);
+    bar.addEventListener('pointercancel', pointerUp);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const contactsBtn = document.getElementById('contacts-btn');
+    if (contactsBtn) contactsBtn.addEventListener('click', function() {
+      if (typeof window.openWelcome === 'function') window.openWelcome();
+    });
+    makeWindowDraggable(document.getElementById('welcome-window'));
+  });
+
   // Main: fetch manifest and build
   async function init() {
     try {
-      const res = await fetch('portfolio/manifest.json');
+      const res = await fetch('manifest.json');
       if (!res.ok) throw new Error('manifest fetch failed');
       const data = await res.json();
 

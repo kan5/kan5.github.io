@@ -20,14 +20,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>kan5 — Portfolio</title>
-<meta name="description" content="Creative portfolio by kan5 — art, stories, projects, and experiments.">
+<meta name="description" content="kan5 — творческое портфолио: визуальные проекты, истории, дизайн, эксперименты и университетские работы.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://kan5.github.io/">
+<link rel="alternate" hreflang="ru" href="https://kan5.github.io/">
+<link rel="alternate" hreflang="en" href="https://kan5.github.io/">
+<link rel="alternate" hreflang="zh" href="https://kan5.github.io/">
+<link rel="alternate" hreflang="x-default" href="https://kan5.github.io/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="kan5 — Portfolio">
-<meta property="og:description" content="Creative portfolio — art, stories, projects, and experiments.">
+<meta property="og:site_name" content="kan5">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="kan5 — творческое портфолио">
+<meta property="og:description" content="Визуальные проекты, истории, дизайн и эксперименты kan5.">
 <meta property="og:url" content="https://kan5.github.io/">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="kan5 — Portfolio">
-<link rel="icon" href="/assets/computer_explorer_2k-4.png" type="image/png">
+<meta name="twitter:title" content="kan5 — творческое портфолио">
+<meta name="twitter:description" content="Визуальные проекты, истории, дизайн и эксперименты kan5.">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"kan5 — Portfolio","url":"https://kan5.github.io/","inLanguage":["ru","en","zh"],"description":"Творческое портфолио kan5: визуальные проекты, истории, дизайн и эксперименты.","sameAs":["https://t.me/iskander_wo","https://www.youtube.com/@RIFGIF777","http://xhslink.com/m/9vaOis27KbU"]}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"kan5 Portfolio Projects","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"CreativeWork","name":"Дверь","url":"https://kan5.github.io/#project-door"}},{"@type":"ListItem","position":2,"item":{"@type":"CreativeWork","name":"Кэндишоп","url":"https://kan5.github.io/#project-candyshop"}},{"@type":"ListItem","position":3,"item":{"@type":"CreativeWork","name":"Сигарета","url":"https://kan5.github.io/#project-cigarette"}},{"@type":"ListItem","position":4,"item":{"@type":"CreativeWork","name":"Новелла","url":"https://kan5.github.io/#project-novel"}},{"@type":"ListItem","position":5,"item":{"@type":"CreativeWork","name":"Печатная машинка","url":"https://kan5.github.io/#project-2025-typeshit"}},{"@type":"ListItem","position":6,"item":{"@type":"CreativeWork","name":"Звонок","url":"https://kan5.github.io/#project-2025-phonecall"}},{"@type":"ListItem","position":7,"item":{"@type":"CreativeWork","name":"Аниме-чан","url":"https://kan5.github.io/#project-2024-ainme-chan"}},{"@type":"ListItem","position":8,"item":{"@type":"CreativeWork","name":"Граф-сеть","url":"https://kan5.github.io/#project-2024-graph-network"}},{"@type":"ListItem","position":9,"item":{"@type":"CreativeWork","name":"Дизеринг","url":"https://kan5.github.io/#project-2023-dithering"}},{"@type":"ListItem","position":10,"item":{"@type":"CreativeWork","name":"Стартап","url":"https://kan5.github.io/#project-2023-study-startup-business"}},{"@type":"ListItem","position":11,"item":{"@type":"CreativeWork","name":"Постеры","url":"https://kan5.github.io/#project-2022-posters"}},{"@type":"ListItem","position":12,"item":{"@type":"CreativeWork","name":"ADD","url":"https://kan5.github.io/#project-2022-add"}},{"@type":"ListItem","position":13,"item":{"@type":"CreativeWork","name":"Функ-роуд","url":"https://kan5.github.io/#project-2021-func-road"}}]}</script>
 <link rel="stylesheet" href="portfolio/98.css">
 <link rel="stylesheet" href="portfolio/style.css">
 <style>
@@ -127,6 +140,7 @@
 
 <video id="video-bg" src="assets/static_sky.webm" loop muted playsinline></video>
 <canvas id="glitch-canvas"></canvas>
+<audio id="desktop-startup" src="assets/microsoft-windows-98-startup-soundmp3_160k.mp3" preload="auto"></audio>
 
 <div id="sound-overlay">
   <button id="sound-btn">▶ &nbsp;<span id="overlay-text"></span></button>
@@ -203,12 +217,29 @@ function stopLoop(k) {
   if (loopNodes[k]) { try { loopNodes[k].stop(); } catch(e) {} delete loopNodes[k]; }
 }
 
+function playDesktopStartup() {
+  try {
+    if (buffers['desktop-startup']) {
+      if (actx && actx.state === 'suspended') {
+        actx.resume().then(()=>play('desktop-startup')).catch(()=>{});
+      } else {
+        play('desktop-startup');
+      }
+      return;
+    }
+    const audio = sounds['desktop-startup'];
+    if (audio) { audio.currentTime = 0; audio.play().catch(()=>{}); }
+  } catch(e) {}
+}
+
 // All sounds into WebAudio buffers
 loadBuffer('wind',  'assets/wind_mixdownn.mp3',   0.7);
 loadBuffer('select','assets/select_2.aac',        0.8);
 loadBuffer('click', 'assets/click_1.aac',         0.8);
 loadBuffer('tick',  'assets/tick.mp3',            0.7);
 loadBuffer('glitch','assets/glitch_mixdownn.mp3', 0.9);
+loadBuffer('desktop-startup','assets/microsoft-windows-98-startup-soundmp3_160k.mp3',0.85);
+loadAudio('desktop-startup','assets/microsoft-windows-98-startup-soundmp3_160k.mp3',0.85,false);
 
 // ─── Elements ────────────────────────────────────────────────────────────────
 const video   = document.getElementById('video-bg');
@@ -476,6 +507,7 @@ function showPortfolio(){
   sessionStorage.setItem('seen_intro','1');
 
   setTimeout(()=>{ canvas.style.display='none'; },700);
+  setTimeout(playDesktopStartup, 80);
   setTimeout(openWelcome, 850);
 }
 
@@ -500,6 +532,9 @@ function closeWelcome() {
   welcomeOverlay.classList.remove('active');
   welcomeOverlay.setAttribute('aria-hidden', 'true');
 }
+
+window.openWelcome = openWelcome;
+window.closeWelcome = closeWelcome;
 
 // The modal is declared below this script, so bind its handlers after parsing.
 document.addEventListener('DOMContentLoaded', function() {
@@ -536,6 +571,7 @@ if(sessionStorage.getItem('seen_intro')){
     pf.classList.add('no-transition');
     pf.style.display='block';
     pf.style.opacity='1';
+    setTimeout(playDesktopStartup, 80);
     setTimeout(openWelcome, 150);
   });
 }
@@ -545,7 +581,17 @@ window._portfolioLang = lang;
 </script>
 <script src="portfolio/portfolio.js" defer></script>
 
-<section id="portfolio"></section>
+<section id="portfolio">
+  <header class="portfolio-header">
+    <div class="portfolio-heading">
+      <h1>kan5 — творческое портфолио</h1>
+      <p>Визуальные проекты, истории, дизайн и эксперименты.</p>
+    </div>
+    <nav class="portfolio-toolbar" aria-label="Навигация по портфолио">
+      <button type="button" id="contacts-btn">Контакты</button>
+    </nav>
+  </header>
+</section>
 <div id="lightbox">
   <button class="lb-arrow lb-prev" aria-label="Previous">&#8249;</button>
   <img src="" alt="">
@@ -555,14 +601,14 @@ window._portfolioLang = lang;
 <div id="welcome-overlay" aria-hidden="true">
   <div id="welcome-window" class="window" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
     <div class="title-bar">
-      <div class="title-bar-text" id="welcome-title">Welcome — Portfolio</div>
+      <div class="title-bar-text" id="welcome-title">Welcome — kan5 Portfolio</div>
       <div class="title-bar-controls">
         <button type="button" class="welcome-close" aria-label="Close"></button>
       </div>
     </div>
 
     <div class="window-body welcome-body">
-      <p class="welcome-text">Привет, рад что вы зашли на сайт! Здесь я собрал часть своего творчества. Чтобы увидеть больше посмотрите мои социальные сети. Или свяжитесь со мной.</p>
+      <p class="welcome-text">Привет! Рад, что вы зашли на сайт. Здесь я собрал часть своего творчества. Чтобы увидеть больше, посмотрите мои социальные сети или свяжитесь со мной.</p>
 
       <fieldset>
         <legend>Контакты</legend>

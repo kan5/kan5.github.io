@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kan5.github.io/sitemap.xml
