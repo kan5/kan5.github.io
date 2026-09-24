@@ -138,7 +138,11 @@
 </head>
 <body>
 
-<video id="video-bg" src="assets/static_sky.webm" loop muted playsinline></video>
+<video id="video-bg" loop muted playsinline autoplay>
+    <source src="assets/static_sky.webm" type="video/webm">
+    <source src="assets/static_sky.mp4" type="video/mp4">
+    Ваш браузер не поддерживает тег video.
+</video>
 <canvas id="glitch-canvas"></canvas>
 <audio id="desktop-startup" src="assets/microsoft-windows-98-startup-soundmp3_160k.mp3" preload="auto"></audio>
 
